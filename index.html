@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kevin Saler Coffee — premium coffee, freshly brewed for your moment.">
+  <title>Kevin Saler Coffee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f2eb; --card:#fffdf9; --dark:#211914; --muted:#776b63;
+      --coffee:#6f452d; --coffee2:#9a6746; --line:#e8ddd2; --white:#fff;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--dark);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    img{width:100%;display:block}
+    .container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:20;background:rgba(247,242,235,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:"Playfair Display",serif;font-size:26px;font-weight:800}
+    .logo span{color:var(--coffee2)}
+    .links{display:flex;gap:28px;font-size:14px;font-weight:600}
+    .links a:hover{color:var(--coffee2)}
+    .nav-btn,.btn{background:var(--dark);color:#fff;padding:12px 20px;border-radius:999px;font-weight:700;display:inline-block;border:0;cursor:pointer}
+    .nav-btn{font-size:13px}
+    .hero{padding:78px 0 70px}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+    .eyebrow{color:var(--coffee2);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12px;margin-bottom:16px}
+    h1{font-family:"Playfair Display",serif;font-size:clamp(48px,7vw,82px);line-height:1.02;letter-spacing:-2px;margin-bottom:22px}
+    h1 em{color:var(--coffee2);font-style:normal}
+    .hero p{font-size:17px;color:var(--muted);max-width:530px;margin-bottom:30px}
+    .hero-actions{display:flex;gap:12px;align-items:center}
+    .btn.light{background:transparent;color:var(--dark);border:1px solid var(--line)}
+    .hero-photo{border-radius:28px;overflow:hidden;min-height:520px;background:linear-gradient(145deg,#a87856,#3b2418);position:relative}
+    .hero-photo img{height:100%;object-fit:cover}
+    .badge{position:absolute;left:20px;bottom:20px;background:rgba(255,253,249,.94);padding:14px 18px;border-radius:16px;font-size:13px;font-weight:700}
+    section{padding:90px 0}
+    .section-head{text-align:center;max-width:650px;margin:0 auto 42px}
+    .section-head h2{font-family:"Playfair Display",serif;font-size:44px;line-height:1.1;margin-bottom:12px}
+    .section-head p{color:var(--muted)}
+    .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .product{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:.25s}
+    .product:hover{transform:translateY(-5px);box-shadow:0 16px 35px rgba(52,31,20,.09)}
+    .product img{height:230px;object-fit:cover}
+    .product-info{padding:20px}
+    .product-top{display:flex;justify-content:space-between;gap:12px;margin-bottom:7px}
+    .product h3{font-family:"Playfair Display",serif;font-size:23px}
+    .price{font-weight:800;color:var(--coffee2);white-space:nowrap}
+    .product p{color:var(--muted);font-size:14px}
+    .about{background:#2a1d17;color:#fff}
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:65px;align-items:center}
+    .about-photo{border-radius:25px;overflow:hidden}
+    .about-photo img{height:450px;object-fit:cover}
+    .about h2{font-family:"Playfair Display",serif;font-size:48px;line-height:1.1;margin-bottom:18px}
+    .about p{color:#d8cbc2;margin-bottom:28px}
+    .features{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .feature{border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:16px}
+    .feature strong{display:block;margin-bottom:4px}
+    .feature span{font-size:13px;color:#bcaea4}
+    .offer{background:#ead9c8}
+    .offer-box{display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .offer h2{font-family:"Playfair Display",serif;font-size:43px;line-height:1.1}
+    .offer p{color:#66544a;margin-top:8px}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+    .contact-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px}
+    .contact-card h3{font-family:"Playfair Display",serif;font-size:27px;margin-bottom:10px}
+    .contact-card p{color:var(--muted);margin-bottom:18px}
+    .contact-list{display:grid;gap:12px}
+    .contact-list div{padding:13px 15px;background:#f4eee7;border-radius:13px}
+    footer{background:#17110e;color:#cbbfb6;padding:30px 0}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center;font-size:13px}
+    .footer-logo{font-family:"Playfair Display",serif;color:#fff;font-size:22px}
+    @media(max-width:800px){
+      .links{display:none}.hero{padding-top:45px}.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+      .hero-photo{min-height:390px}.menu-grid{grid-template-columns:1fr 1fr}.about-photo img{height:330px}
+      .offer-box{display:block}.offer .btn{margin-top:22px}.section-head h2{font-size:36px}
+    }
+    @media(max-width:520px){
+      .menu-grid{grid-template-columns:1fr}h1{font-size:52px}.hero-actions{flex-direction:column;align-items:stretch}
+      .hero-actions .btn{text-align:center}.nav-btn{padding:10px 14px}.about h2{font-size:39px}
+      .features{grid-template-columns:1fr}.footer-row{display:block}.footer-row div:last-child{margin-top:8px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#home">Kevin <span>Saler</span></a>
+      <div class="links">
+        <a href="#home">Home</a><a href="#coffee">Coffee</a><a href="#about">About</a><a href="#contact">Contact</a>
+      </div>
+      <a class="nav-btn" href="#contact">Order Now</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Premium Coffee • Freshly Brewed</div>
+        <h1>Good coffee.<br><em>Good moments.</em></h1>
+        <p>Welcome to Kevin Saler Coffee — a warm, modern coffee experience made with quality beans, fresh ingredients, and a passion for great taste.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#coffee">Explore Coffee</a>
+          <a class="btn light" href="#contact">Contact Us</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85" alt="Fresh coffee">
+        <div class="badge">☕ Freshly brewed every day</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="coffee">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Our Menu</div>
+        <h2>Find your perfect cup</h2>
+        <p>Classic favorites and refreshing coffee drinks prepared with care.</p>
+      </div>
+      <div class="menu-grid">
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=800&q=85" alt="Espresso">
+          <div class="product-info"><div class="product-top"><h3>Espresso</h3><span class="price">$2.50</span></div><p>Rich, bold and beautifully balanced.</p></div>
+        </article>
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=85" alt="Americano">
+          <div class="product-info"><div class="product-top"><h3>Americano</h3><span class="price">$3.00</span></div><p>Smooth espresso with hot water.</p></div>
+        </article>
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1572449043416-55f4685c9bb7?auto=format&fit=crop&w=800&q=85" alt="Cappuccino">
+          <div class="product-info"><div class="product-top"><h3>Cappuccino</h3><span class="price">$3.50</span></div><p>Velvety milk foam over rich espresso.</p></div>
+        </article>
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1561882468-9110e03e0f78?auto=format&fit=crop&w=800&q=85" alt="Latte">
+          <div class="product-info"><div class="product-top"><h3>Latte</h3><span class="price">$3.75</span></div><p>Silky, creamy and naturally smooth.</p></div>
+        </article>
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=85" alt="Iced Coffee">
+          <div class="product-info"><div class="product-top"><h3>Iced Coffee</h3><span class="price">$3.50</span></div><p>Refreshing coffee served chilled over ice.</p></div>
+        </article>
+        <article class="product">
+          <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=800&q=85" alt="Mocha">
+          <div class="product-info"><div class="product-top"><h3>Mocha</h3><span class="price">$4.00</span></div><p>Espresso, chocolate and creamy milk.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container about-grid">
+      <div class="about-photo">
+        <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=85" alt="Coffee shop">
+      </div>
+      <div>
+        <div class="eyebrow">About Kevin Saler</div>
+        <h2>Made with care. Served with heart.</h2>
+        <p>We believe a great cup of coffee can make an ordinary day feel special. Kevin Saler brings together quality coffee, a welcoming atmosphere, and simple moments worth enjoying.</p>
+        <div class="features">
+          <div class="feature"><strong>🌱 Quality Beans</strong><span>Selected for rich flavor.</span></div>
+          <div class="feature"><strong>☕ Fresh Brew</strong><span>Prepared fresh for every order.</span></div>
+          <div class="feature"><strong>❤️ Made With Care</strong><span>Every cup gets our attention.</span></div>
+          <div class="feature"><strong>🚚 Easy Ordering</strong><span>Order and enjoy with ease.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer">
+    <div class="container offer-box">
+      <div><div class="eyebrow">Special Offer</div><h2>Buy 2, Get 1 Free</h2><p>Selected coffee drinks • Limited-time offer</p></div>
+      <a class="btn" href="#contact">Order Today</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Get In Touch</div>
+        <h2>Let's make your coffee moment</h2>
+        <p>Replace the sample contact details below with your real business information.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Order Coffee</h3>
+          <p>Ready to order? Contact us through your preferred channel.</p>
+          <div class="contact-list">
+            <div>📱 <strong>Phone:</strong> +855 XX XXX XXX</div>
+            <div>💬 <strong>Telegram:</strong> @KevinSalerCoffee</div>
+            <div>📘 <strong>Facebook:</strong> Kevin Saler Coffee</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h3>Visit Us</h3>
+          <p>Come by for a fresh cup and a relaxed moment.</p>
+          <div class="contact-list">
+            <div>📍 <strong>Address:</strong> Phnom Penh, Cambodia</div>
+            <div>🕐 <strong>Opening:</strong> 7:00 AM – 9:00 PM</div>
+            <div>☕ <strong>Service:</strong> Dine-in • Takeaway • Delivery</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <div class="footer-logo">Kevin Saler Coffee</div>
+    <div>© 2026 Kevin Saler. All Rights Reserved.</div>
+  </div>
+</footer>
+</body>
+</html>
